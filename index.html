@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Biodata</title>
+<style>
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes buttonHover {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+  }
+
+  #photoPreview {
+    margin-top: 10px;
+    max-width: 200px;
+    display: none;
+    opacity: 0;
+    animation: fadeIn 1s forwards; 
+  }
+
+  .button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .button:hover {
+    background-color: #45a049;
+    animation: buttonHover 0.3s;
+  }
+
+  .button.reset {
+    background-color: #f44336;
+  }
+
+  .button.reset:hover {
+    background-color: #e53935;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #097973;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff ;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  td {
+    padding: 10px;
+  }
+
+  td label {
+    font-weight: bold;
+  }
+
+  input[type="text"], input[type="number"], input[type="email"], input[type="date"], input[type="tel"], input[type="color"], input[type="url"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }
+
+  input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="date"]:focus, input[type="tel"]:focus, input[type="color"]:focus, input[type="url"]:focus, textarea:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+h2{
+color:white;
+}
+</style>
+</head>
+<body>
+<h1>Personal Details</h1>
+<hr>
+
+<form  action="https://api.web3forms.com/submit" method="POST">
+  <table>
+    <tr>
+      <td><label for="name">Name:</label></td>
+      <input type="hidden" name="access_key" value="9ae29679-e6c9-4458-801b-37ad7be8847c">
+      <td><input type="text" id="name" name="name" placeholder="Enter Your name" autofocus required></td>
+    </tr>
+    <tr>
+      <td><label for="age">Age:</label></td>
+      <td><input type="number" id="age" name="age" min="0" max="100" step="1" required></td>
+    </tr>
+    <tr>
+      <td><label>Gender:</label></td>
+      <td>
+        <input type="radio" id="male" name="sex" value="male" checked>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="sex" value="female">
+        <label for="female">Female</label>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="address">Address:</label></td>
+      <td><textarea id="address" name="address" cols="50" rows="5" placeholder="Add your address" required></textarea></td>
+    </tr>
+    <tr>
+      <td><label for="email">Email:</label></td>
+      <td><input type="email" id="email" name="email" placeholder="Enter your email" required></td>
+    </tr>
+    <tr>
+      <td><label for="dob">Date Of Birth:</label></td>
+      <td><input type="date" id="dob" name="DOB"  required></td>
+    </tr>
+    <tr>
+      <td><label for="height">Height:</label></td>
+      <td>
+        <input type="range" id="heightId" name="height" min="100" max="200" value="150" oninput="outputId.value = heightId.value">
+        <output id="outputId">150</output>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="phone">phone:</label></td>
+      <td><input type="number" id="phone" name="phone" placeholder="+91 8270474085" required></td>
+    </tr>
+    <tr>
+      <td><label for="fbtwig">Linkedin:</label></td>
+      <td><input type="url" id="fbtwig" name="fbtwig" required></td>
+    </tr>
+    <tr>
+      <td><label for="photo">Photo:</label></td>
+      <td>
+        <input type="file" id="photo" name="photo" required>
+        <img id="photoPreview" alt="Photo Preview">
+      </td>
+    </tr>
+    <tr>
+      <td><label for="university">My Collage:</label></td>
+      <td>
+        <select id="university" name="university">
+          <option value="" selected>Select</option>
+          <option value="UKM">Hindusthan collage</option>
+          <option value="UM"> Sri Krishna collage</option>
+            <option value="UM">Karpagam Collage</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <hr>
+  <input type="hidden" name="matricnum" value="a161032">
+  <div style="text-align: center; margin-top: 20px;">
+
+    <input type="submit" name="biodata_form" value="Submit My Details" class="button">
+    <input type="reset" name="biodata_form" value="Reset" class="button reset">
+  </div>
+</form>
+
+<center>
+<h2>Created By Thivakar</h2>
+</center>
+
+<script>
+document.querySelector('input[name="photo"]').addEventListener('change', function(event) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var img = document.getElementById('photoPreview');
+    img.src = e.target.result;
+    img.style.display = 'block';
+    img.style.opacity = 1; 
+  };
+  reader.readAsDataURL(file);
+});
+</script>
+
+</body>
+</html>
